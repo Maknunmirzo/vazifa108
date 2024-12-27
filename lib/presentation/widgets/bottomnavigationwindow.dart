@@ -29,7 +29,7 @@ class Bottomnavigationwindow extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 40),
+          SizedBox(height: 45),
         ],
       ),
     );

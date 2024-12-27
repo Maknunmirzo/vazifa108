@@ -11,7 +11,7 @@ class RecentlyAddedItem extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Positioned(
-          bottom: -65,
+          bottom: -70,
           left: 5,
           right: 5,
           child: Container(
@@ -23,58 +23,68 @@ class RecentlyAddedItem extends StatelessWidget {
 
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+              padding: const EdgeInsets.symmetric(vertical: 6,horizontal: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                        color: Color(0xff1C0F0D),
-                        decoration: TextDecoration.none,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 12),
-                  ),
-                  Text(
-                    description,
-                    style: TextStyle(
-                        color: Color(0xff1C0F0D),
-                        decoration: TextDecoration.none,
-                        fontSize: 12),
-                  ),
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          SizedBox(width: 6,),
-                          Text(
-                            rating,
-                            style: TextStyle(
-                                color: Color(0xffEC888D),
-                                decoration: TextDecoration.none,
-                                fontSize: 13),
-                          ),
-                          SvgPicture.asset("assets/svg/star.svg"),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          SvgPicture.asset("assets/svg/clock.svg"),
-                          SizedBox(width: 3,),
-                          Text(
-                            time,
-                            style: TextStyle(
-                                color: Color(0xffEC888D),
-                                decoration: TextDecoration.none,
-                                fontSize: 13),
-                          ),
-                        ],
-                      ),
-                    ],
-                  )
-
+                  SizedBox(
+                    height: 18,
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                          color: Color(0xff1C0F0D),
+                          decoration: TextDecoration.none,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 12),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                    child: Text(
+                      description,
+                      style: TextStyle(
+                          color: Color(0xff1C0F0D),
+                          decoration: TextDecoration.none,
+                          fontSize: 12),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            SizedBox(width: 6,),
+                            Text(
+                              rating,
+                              style: TextStyle(
+                                  color: Color(0xffEC888D),
+                                  decoration: TextDecoration.none,
+                                  fontSize: 13),
+                            ),
+                            SizedBox(width: 3,),
+                            SvgPicture.asset("assets/svg/star.svg",fit: BoxFit.cover,),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            SvgPicture.asset("assets/svg/clock.svg"),
+                            SizedBox(width: 3,),
+                            Text(
+                              time,
+                              style: TextStyle(
+                                  color: Color(0xffEC888D),
+                                  decoration: TextDecoration.none,
+                                  fontSize: 13),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  // SizedBox(height: 20,),
                 ],
               ),
             ),

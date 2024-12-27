@@ -6,6 +6,8 @@ import 'package:thing/presentation/widgets/TrendingRecipe.dart';
 import 'package:thing/presentation/widgets/YourRecipesItem.dart';
 import 'package:thing/presentation/widgets/bottomnavigationwindow.dart';
 
+import '../widgets/AppbarWidgetDetails.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -28,8 +30,7 @@ class AppBarWindow extends StatelessWidget implements PreferredSizeWidget{
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      toolbarHeight: 90,
-
+      toolbarHeight: 130,
       backgroundColor: Color(0xFF1C0F0D),
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,6 +61,7 @@ class AppBarWindow extends StatelessWidget implements PreferredSizeWidget{
             borderRadius: BorderRadius.circular(14),
           ),
         ),
+        SizedBox(width: 6,),
         Container(
           width: 28,
           height: 28,
@@ -70,10 +72,11 @@ class AppBarWindow extends StatelessWidget implements PreferredSizeWidget{
           ),
         )
       ],
+      bottom: AppbarwidgetDetailsItem(),
     ) ;
   }
   @override
-  Size get preferredSize => const Size.fromHeight(90);
+  Size get preferredSize => const Size.fromHeight(130);
 }
 
 class MainWindow extends StatelessWidget {
@@ -85,12 +88,13 @@ class MainWindow extends StatelessWidget {
       // crossAxisAlignment: CrossAxisAlignment.center,
       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          TrendingRecipe(),
+          SizedBox(height: 20,),
+          Center(child: TrendingRecipe()),
           SizedBox(height: 50,),
-          YourRecipes(),
+          Center(child: YourRecipes()),
           SizedBox(height: 10,),
           TopChef(),
-          RecentyAdded(),
+          Center(child: RecentyAdded()),
         ] );
   }
 
@@ -141,34 +145,36 @@ class YourRecipes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      // alignment: Alignment. ,
+      // width:     0,
       height: 255,
+      padding: EdgeInsets.symmetric(vertical: 14,horizontal: 38),
       decoration: BoxDecoration(
           color: Color(0xffFD5D69),
           borderRadius: BorderRadius.circular(20)
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 14),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Your recipes",
-              style: TextStyle(
-                  color: Colors.white,
-                  decoration: TextDecoration.none,
-                  fontSize: 15),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                YourRecipesItem(image: "assets/home_page/hamb.png", title: "Chicken Burger", rating: "5", time: "15min"),
-                YourRecipesItem(image: "assets/home_page/dessert.png", title: "Tiramisu", rating: "5", time: "15min"),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Your recipes",
+            style: TextStyle(
+                color: Colors.white,
+                decoration: TextDecoration.none,
+                fontSize: 15),
+          ),
+          SizedBox(height: 6,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              
+              Expanded(child: YourRecipesItem(image: "assets/home_page/hamb.png", title: "Chicken Burger", rating: "5", time: "15min")),
+              SizedBox(width: 16,),
+              Expanded(child: YourRecipesItem(image: "assets/home_page/dessert.png", title: "Tiramisu", rating: "5", time: "15min")),
 
-              ],
-            )
-          ],
-        ),
+            ],
+          )
+        ],
       ),
     );
   }
@@ -179,8 +185,8 @@ class RecentyAdded extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 14),
+    return Container(
+      padding: EdgeInsets.only(left: 37,right: 37,bottom: 99),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -191,11 +197,13 @@ class RecentyAdded extends StatelessWidget {
                 decoration: TextDecoration.none,
                 fontSize: 15),
           ),
+          SizedBox(height: 6,),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              RecentlyAddedItem(image: "assets/home_page/picrecent1.png", title: "Lemonade", description: "acidic and refreshing", rating: "4", time: "30min"),
-              RecentlyAddedItem(image: "assets/home_page/picrecent2.png", title: "Lemonade", description: "acidic and refreshing", rating: "4", time: "30min"),
+              Expanded(child: RecentlyAddedItem(image: "assets/home_page/picrecent1.png", title: "Lemonade", description: "acidic and refreshing", rating: "4", time: "30min")),
+              SizedBox(width: 20,),
+              Expanded(child: RecentlyAddedItem(image: "assets/home_page/picrecent2.png", title: "Lemonade", description: "acidic and refreshing", rating: "4", time: "30min")),
             ],
           )
         ],

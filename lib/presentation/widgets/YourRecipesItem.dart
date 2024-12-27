@@ -15,7 +15,7 @@ class YourRecipesItem extends StatelessWidget {
           child: SizedBox(
             width: 169,
             height: 162,
-            child: Image.asset(image),),
+            child: Image.asset(image,fit:BoxFit.cover,),),
         ),
         Positioned(
 

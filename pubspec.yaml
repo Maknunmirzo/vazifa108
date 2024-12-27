@@ -58,6 +58,8 @@ flutter:
     - assets/svg/bottom/
     - assets/home_page/
     - assets/categories/
+    - assets/categories_details/breakfast/
+    - assets/categories_details/lunch/
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
