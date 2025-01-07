@@ -10,7 +10,7 @@ class AppbarwidgetDetails extends StatelessWidget implements PreferredSizeWidget
   Widget build(BuildContext context) {
     return  AppBar(
       backgroundColor: Color(0xff1C0F0D),
-      leadingWidth: 40,
+      leadingWidth: 37,
       leading: Padding(
         padding: const EdgeInsets.only(left: 10.0),
         child: SvgPicture.asset(
@@ -54,7 +54,7 @@ class AppbarwidgetDetailsItem extends StatelessWidget implements PreferredSizeWi
   AppbarwidgetDetailsItem({super.key});
 
   @override
-  Size get preferredSize => const Size.fromHeight(25);
+  Size get preferredSize => const Size.fromHeight(30);
   final List <Widget> items =[
     TextItemAppBar(text: "Breakfast"),
     TextItemAppBar(text: "Lunch"),
@@ -67,8 +67,9 @@ class AppbarwidgetDetailsItem extends StatelessWidget implements PreferredSizeWi
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 25,
+      height: 30,
       child: ListView.separated(
+        padding: EdgeInsets.only(bottom: 10),
           itemCount:items.length+1,
           scrollDirection: Axis.horizontal,
           separatorBuilder: (BuildContext context, int index) =>items[index],

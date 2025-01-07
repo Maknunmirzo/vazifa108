@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:thing/presentation/pages/CategoriesPage.dart';
 import 'package:thing/presentation/pages/HomePage.dart';
+import 'package:thing/presentation/pages/RecipePage.dart';
 import 'package:thing/presentation/pages/categories_details/BreakfastPage.dart';
 import 'package:thing/presentation/pages/categories_details/LunchPage.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: BreakfastPage()
+      home: RecipePage()
     );
   }
 }

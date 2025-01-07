@@ -8,23 +8,16 @@ import 'package:thing/presentation/widgets/bottomnavigationwindow.dart';
 
 import '../widgets/AppbarWidgetDetails.dart';
 
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Color(0xFF1C0F0D),
-        extendBody: true,
-        appBar: AppBarWindow(),
-        body:MainWindow() ,
-        bottomNavigationBar: Bottomnavigationwindow()
-    );
+    return Scaffold(backgroundColor: Color(0xFF1C0F0D), extendBody: true, appBar: AppBarWindow(), body: MainWindow(), bottomNavigationBar: Bottomnavigationwindow());
   }
 }
 
-class AppBarWindow extends StatelessWidget implements PreferredSizeWidget{
+class AppBarWindow extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWindow({super.key});
 
   @override
@@ -37,17 +30,11 @@ class AppBarWindow extends StatelessWidget implements PreferredSizeWidget{
         children: [
           Text(
             "HI! Dianne",
-            style: TextStyle(
-                color: Color(0xffFD5D69),
-                decoration: TextDecoration.none,
-                fontSize: 26),
+            style: TextStyle(color: Color(0xffFD5D69), decoration: TextDecoration.none, fontSize: 26),
           ),
           Text(
             "What are you cooking today",
-            style: TextStyle(
-                color: Color(0xffFFFDF9),
-                decoration: TextDecoration.none,
-                fontSize: 14),
+            style: TextStyle(color: Color(0xffFFFDF9), decoration: TextDecoration.none, fontSize: 14),
           )
         ],
       ),
@@ -55,17 +42,31 @@ class AppBarWindow extends StatelessWidget implements PreferredSizeWidget{
         Container(
           width: 28,
           height: 28,
-          child: SvgPicture.asset("assets/svg/notification.svg"),
+          child: SvgPicture.asset(
+            "assets/svg/notification.svg",
+            fit: BoxFit.contain,
+            colorFilter: ColorFilter.mode(Color(0xffFD5D69), BlendMode.srcIn),
+          ),
           decoration: BoxDecoration(
             color: Color(0xffFFC6C9),
             borderRadius: BorderRadius.circular(14),
           ),
         ),
-        SizedBox(width: 6,),
+        SizedBox(
+          width: 6,
+        ),
         Container(
           width: 28,
           height: 28,
-          child: SvgPicture.asset("assets/svg/search.svg"),
+          child: SizedBox(
+            width: 14,
+            height: 16,
+            child: SvgPicture.asset(
+              "assets/svg/search.svg",
+              fit: BoxFit.contain,
+              colorFilter: ColorFilter.mode(Color(0xffFD5D69), BlendMode.srcIn),
+            ),
+          ),
           decoration: BoxDecoration(
             color: Color(0xffFFC6C9),
             borderRadius: BorderRadius.circular(14),
@@ -73,8 +74,9 @@ class AppBarWindow extends StatelessWidget implements PreferredSizeWidget{
         )
       ],
       bottom: AppbarwidgetDetailsItem(),
-    ) ;
+    );
   }
+
   @override
   Size get preferredSize => const Size.fromHeight(130);
 }
@@ -85,22 +87,25 @@ class MainWindow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      // crossAxisAlignment: CrossAxisAlignment.center,
-      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Center(child: TrendingRecipe()),
-          SizedBox(height: 50,),
+          SizedBox(
+            height: 50,
+          ),
           Center(child: YourRecipes()),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           TopChef(),
           Center(child: RecentyAdded()),
-        ] );
+        ]);
   }
-
 }
-
-
 
 class TopChef extends StatelessWidget {
   const TopChef({super.key});
@@ -108,7 +113,7 @@ class TopChef extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 30,right: 30),
+      padding: const EdgeInsets.only(left: 30, right: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -116,13 +121,12 @@ class TopChef extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: Text(
               "Top chef",
-              style: TextStyle(
-                  color: Color(0xffFD5D69),
-                  decoration: TextDecoration.none,
-                  fontSize: 15),
+              style: TextStyle(color: Color(0xffFD5D69), decoration: TextDecoration.none, fontSize: 15),
             ),
           ),
-          SizedBox(height: 5,),
+          SizedBox(
+            height: 5,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -132,7 +136,6 @@ class TopChef extends StatelessWidget {
               TopChefItem(image: "assets/home_page/chef4.png", title: "Jessica"),
             ],
           )
-
         ],
       ),
     );
@@ -148,30 +151,26 @@ class YourRecipes extends StatelessWidget {
       // alignment: Alignment. ,
       // width:     0,
       height: 255,
-      padding: EdgeInsets.symmetric(vertical: 14,horizontal: 38),
-      decoration: BoxDecoration(
-          color: Color(0xffFD5D69),
-          borderRadius: BorderRadius.circular(20)
-      ),
+      padding: EdgeInsets.symmetric(vertical: 14, horizontal: 38),
+      decoration: BoxDecoration(color: Color(0xffFD5D69), borderRadius: BorderRadius.circular(20)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "Your recipes",
-            style: TextStyle(
-                color: Colors.white,
-                decoration: TextDecoration.none,
-                fontSize: 15),
+            style: TextStyle(color: Colors.white, decoration: TextDecoration.none, fontSize: 15),
           ),
-          SizedBox(height: 6,),
+          SizedBox(
+            height: 6,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              
               Expanded(child: YourRecipesItem(image: "assets/home_page/hamb.png", title: "Chicken Burger", rating: "5", time: "15min")),
-              SizedBox(width: 16,),
+              SizedBox(
+                width: 16,
+              ),
               Expanded(child: YourRecipesItem(image: "assets/home_page/dessert.png", title: "Tiramisu", rating: "5", time: "15min")),
-
             ],
           )
         ],
@@ -186,23 +185,24 @@ class RecentyAdded extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 37,right: 37,bottom: 99),
+      padding: EdgeInsets.only(left: 37, right: 37, bottom: 99),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "Recently Added",
-            style: TextStyle(
-                color: Color(0xffFD5D69),
-                decoration: TextDecoration.none,
-                fontSize: 15),
+            style: TextStyle(color: Color(0xffFD5D69), decoration: TextDecoration.none, fontSize: 15),
           ),
-          SizedBox(height: 6,),
+          SizedBox(
+            height: 6,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(child: RecentlyAddedItem(image: "assets/home_page/picrecent1.png", title: "Lemonade", description: "acidic and refreshing", rating: "4", time: "30min")),
-              SizedBox(width: 20,),
+              SizedBox(
+                width: 20,
+              ),
               Expanded(child: RecentlyAddedItem(image: "assets/home_page/picrecent2.png", title: "Lemonade", description: "acidic and refreshing", rating: "4", time: "30min")),
             ],
           )
